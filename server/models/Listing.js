@@ -20,11 +20,11 @@ const listingSchema = new Schema({
     trim: true,
   },
   listingAvgRent: {
-    type: Integer,
+    type: String,
     required: true,
   },
   listingRoomies: {
-    type: string,
+    type: String,
     required: true,
   },
   createdAt: {
@@ -48,3 +48,7 @@ const listingSchema = new Schema({
     },
   ],
 });
+
+const Listing = model("Listing", listingSchema);
+
+module.exports = Listing;
