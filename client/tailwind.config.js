@@ -1,10 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    colors: {
+      "bright-yellow": "#FFEE32",
+      "main-yellow": "#FFD100",
+      "main-dark": "#202020",
+      "pale-dark": "#333533",
+    },
+    extend: {
+      backgroundImage: {
+        "doc-gif": "url('./assets/Untitled design.gif')",
+      },
+    },
   },
   plugins: [],
-}
+};
