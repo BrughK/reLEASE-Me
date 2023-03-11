@@ -8,7 +8,11 @@ module.exports = {
       "main-dark": "#202020",
       "pale-dark": "#333533",
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "doc-gif": "url('./assets/Untitled design.gif')",
+      },
+    },
   },
   plugins: [],
 };
