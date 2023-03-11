@@ -1,5 +1,6 @@
 import Landing from "./components/Landing";
 import Bean from "./components/TestComp";
+import Footer from "./components/Footer";
 // import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { Disclosure } from "@headlessui/react";
 import { BellIcon } from "@heroicons/react/24/outline";
@@ -60,6 +61,7 @@ export default function Example() {
           </div>
         </div>
       </Disclosure>
+
       {/* React Router Routes lol */}
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -67,6 +69,7 @@ export default function Example() {
         {/* Create a route to display a single thought's comments based on its `thoughtId` provided in the URL */}
         {/* <Route path="/thoughts/:thoughtId" element={<SingleThought />} /> */}
       </Routes>
+      <Footer />
     </Router>
   );
 }

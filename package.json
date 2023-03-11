@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/BrughK/reLEASE-Me#readme",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^5.1.0"
   }
 }
