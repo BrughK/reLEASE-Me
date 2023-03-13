@@ -11,8 +11,23 @@ const resolvers = {
   },
 
   Mutation: {
-    addListing: async (parent, { listingText, listingAuthor }) => {
-      return Listing.create({ listingText, listingAuthor });
+    addListing: async (
+      parent,
+      {
+        listingText,
+        listingAuthor,
+        listingSchool,
+        listingAvgRent,
+        listingRoomies,
+      }
+    ) => {
+      return Listing.create({
+        listingText,
+        listingAuthor,
+        listingSchool,
+        listingAvgRent,
+        listingRoomies,
+      });
     },
     addComment: async (parent, { listingId, commentText }) => {
       return Listing.findOneAndUpdate(
