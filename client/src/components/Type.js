@@ -10,6 +10,7 @@ function Type() {
           "Florida State University",
           "Georgia Institute of Technology",
           "Emory",
+          "Georgia Southern University",
         ],
         autoStart: true,
         loop: true,
