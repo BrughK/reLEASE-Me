@@ -1,5 +1,9 @@
 import Landing from "./components/Landing";
-import Bean from "./components/TestComp";
+import About from "./components/About";
+import Browse from "./components/Listings";
+import Listing from "./components/creatListing";
+import Devs from "./components/Devs";
+
 import Footer from "./components/Footer";
 // import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { Disclosure } from "@headlessui/react";
@@ -24,25 +28,25 @@ export default function Example() {
                   </Link>
                   <Link
                     className="text-main-yellow hover:bg-gray-700 transition ease-in-out delay-60 hover:opacity-50 rounded-md px-3 py-2 text-lg font-medium"
-                    to="/lol"
+                    to="/about"
                   >
                     About
                   </Link>
                   <Link
                     className="text-main-yellow hover:bg-gray-700 transition ease-in-out delay-60 hover:opacity-50 rounded-md px-3 py-2 text-lg font-medium"
-                    to="/"
+                    to="/listings"
                   >
                     Browse
                   </Link>
                   <Link
                     className="text-main-yellow hover:bg-gray-700 transition ease-in-out delay-60 hover:opacity-50 rounded-md px-3 py-2 text-lg font-medium"
-                    to="/"
+                    to="/post-listing"
                   >
                     Post a Listing
                   </Link>
                   <Link
                     className="text-main-yellow hover:bg-gray-700 transition ease-in-out delay-60 hover:opacity-50 rounded-md px-3 py-2 text-lg font-medium"
-                    to="/"
+                    to="/developers-page"
                   >
                     Devs
                   </Link>
@@ -65,7 +69,10 @@ export default function Example() {
       {/* React Router Routes lol */}
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/lol" element={<Bean />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/listings" element={<Browse />} />
+        <Route path="/post-listing" element={<Listing />} />
+        <Route path="/developers-page" element={<Devs />} />
         {/* Create a route to display a single thought's comments based on its `thoughtId` provided in the URL */}
         {/* <Route path="/thoughts/:thoughtId" element={<SingleThought />} /> */}
       </Routes>
