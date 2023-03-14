@@ -1,93 +1,55 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-// const Browse = () => {
-//   return (
-//     <body className="bg-main-yellow full-class">
-//       <style type="text/css">{`.full-class{height: 911px;}`}</style>
-    
-//     </body>
-//   );
-// };
-
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
+const Browse = ({ listings, title }) => {
+  if (!listings.length) {
+    return <h3>No Listings</h3>;
   }
-  ```
-*/
-const products = [
-  {
-    id: 1,
-    name: 'Earthen Bottle',
-    href: '#',
-    price: '$48',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-  },
-  {
-    id: 2,
-    name: 'Nomad Tumbler',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
-  },
-  {
-    id: 3,
-    name: 'Focus Paper Refill',
-    href: '#',
-    price: '$89',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
-  },
-  {
-    id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
-  },
-  // More products...
-]
 
-const Browse = () => {
   return (
-    <body className="bg-main-yellow full-class">
-    <style type="text/css">{`.full-class{height: 911px;}`}</style>
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="sr-only">Products</h2>
+    <div className="mx-3">
+      <p className="text-5xl text-center py-4 font-bold leading-7 text-main-dark sm:truncate sm:tracking-tight">
+        {title}
+      </p>
+      {listings &&
+        listings.map((listing) => (
+          <div
+            key={listing._id}
+            className="bg-pale-dark rounded-lg text-main-yellow p-3 my-3"
+          >
+            <p className="text-4xl text-center font-bold sm:truncate sm:tracking-tight">
+              {listing.listingAuthor} <br />
+              <span className="text-main-dark" style={{ fontSize: "1rem" }}>
+                created this listing on {listing.createdAt}
+              </span>
+            </p>
 
-        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {products.map((product) => (
-            <a key={product.id} href={product.href} className="group">
-              <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                <img
-                  src={product.imageSrc}
-                  alt={product.imageAlt}
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-            </a>
-          ))}
-        </div>
-      </div>
+            <p className="text-2xl font-medium">
+              School: {listing.listingSchool}
+            </p>
+
+            <p className="text-xl font-medium">
+              Roommates: {listing.listingRoomies}
+            </p>
+
+            <p className="text-xl font-medium">
+              Average Rent: {listing.listingAvgRent}
+            </p>
+
+            <p className="text-xl font-medium mb-2">
+              Description: {listing.listingText}
+            </p>
+            <Link
+              className="bg-main-dark hover:opacity-60 transition ease-in-out delay-60 font-bold py-2 rounded"
+              to={`/listings/${listing._id}`}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              Check out this listing!
+            </Link>
+          </div>
+        ))}
     </div>
-    </body>
-  )
-}
-
-
+  );
+};
 
 export default Browse;
