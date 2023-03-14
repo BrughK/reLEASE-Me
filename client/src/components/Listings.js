@@ -1,30 +1,50 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// !UPDATE THIS TO LISTING VARS
+const Browse = ({ listings, title }) => {
+  if (!listings.length) {
+    return <h3>No Listings</h3>;
+  }
 
-const Browse = ({ thoughts, title }) => {
   return (
-    <div>
-      <h3>{title}</h3>
-      {thoughts &&
-        thoughts.map((thought) => (
+    <div className="mx-3">
+      <p className="text-5xl text-center py-4 font-bold leading-7 text-main-dark sm:truncate sm:tracking-tight">
+        {title}
+      </p>
+      {listings &&
+        listings.map((listing) => (
           <div
-            key={thought._id}
-            className="bg-white rounded-lg shadow-md p-4 mb-4"
+            key={listing._id}
+            className="bg-pale-dark rounded-lg text-main-yellow p-3 my-3"
           >
-            <h4 className="text-lg font-medium mb-2">
-              {thought.thoughtAuthor}
-            </h4>
-            <p className="text-gray-500 mb-2 text-sm">
-              had this thought on {thought.createdAt}
+            <p className="text-4xl text-center font-bold sm:truncate sm:tracking-tight">
+              {listing.listingAuthor} <br />
+              <span className="text-main-dark" style={{ fontSize: "1rem" }}>
+                created this listing on {listing.createdAt}
+              </span>
             </p>
-            <p className="text-gray-700">{thought.thoughtText}</p>
+
+            <p className="text-2xl font-medium">
+              School: {listing.listingSchool}
+            </p>
+
+            <p className="text-xl font-medium">
+              Roommates: {listing.listingRoomies}
+            </p>
+
+            <p className="text-xl font-medium">
+              Average Rent: {listing.listingAvgRent}
+            </p>
+
+            <p className="text-xl font-medium mb-2">
+              Description: {listing.listingText}
+            </p>
             <Link
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 inline-block"
-              to={`/thoughts/${thought._id}`}
+              className="bg-main-dark hover:opacity-60 transition ease-in-out delay-60 font-bold py-2 rounded"
+              to={`/listings/${listing._id}`}
+              style={{ display: "flex", justifyContent: "center" }}
             >
-              Join the discussion on this thought
+              Check out this listing!
             </Link>
           </div>
         ))}

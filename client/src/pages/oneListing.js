@@ -1,59 +1,63 @@
-// !CHANGE THIS TO LISTING VARS
-// import React from 'react';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import CommentList from "../components/Comments";
+import CommentForm from "../components/createComment";
+import { QUERY_SINGLE_LISTING } from "../utils/queries";
 
-// // Import the `useParams()` hook from React Router
-// import { useParams } from 'react-router-dom';
-// import { useQuery } from '@apollo/client';
+const SingleListing = () => {
+  const { listingId } = useParams();
+  const { loading, data } = useQuery(QUERY_SINGLE_LISTING, {
+    variables: { listingId: listingId },
+  });
 
-// import CommentList from '../components/CommentList';
-// import CommentForm from '../components/CommentForm';
+  const listing = data?.listing || {};
 
-// import { QUERY_SINGLE_THOUGHT } from '../utils/queries';
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <body className="bg-main-yellow full-class">
+      <style type="text/css">{`.full-class{
+          background-position: center;
+          background-size: contain;
+          
+        }`}</style>
 
-// const SingleThought = () => {
-//   // Use `useParams()` to retrieve value of the route parameter `:profileId`
-//   const { thoughtId } = useParams();
+      <div className="my-3 mx-4 px-4 bg-main-dark rounded-md text-main-yellow p-4">
+        <p className="text-4xl text-center font-bold sm:truncate sm:tracking-tight">
+          {listing.listingAuthor} <br />
+          <span className="tracking-wide" style={{ fontSize: "1rem" }}>
+            created this listing on {listing.createdAt}
+          </span>
+        </p>
+        <div className="bg-light py-2 ">
+          <p className="text-2xl font-medium">
+            School: {listing.listingSchool}
+          </p>
 
-//   const { loading, data } = useQuery(QUERY_SINGLE_THOUGHT, {
-//     // Pass the `thoughtId` URL parameter into query to retrieve this thought's data
-//     variables: { thoughtId: thoughtId },
-//   });
+          <p className="text-xl font-medium">
+            Roommates: {listing.listingRoomies}
+          </p>
 
-//   const thought = data?.thought || {};
+          <p className="text-xl font-medium">
+            Average Rent: {listing.listingAvgRent}
+          </p>
 
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-//   return (
-//     <div className="my-3">
-//       <h3 className="card-header bg-dark text-light p-2 m-0">
-//         {thought.thoughtAuthor} <br />
-//         <span style={{ fontSize: '1rem' }}>
-//           had this thought on {thought.createdAt}
-//         </span>
-//       </h3>
-//       <div className="bg-light py-4">
-//         <blockquote
-//           className="p-4"
-//           style={{
-//             fontSize: '1.5rem',
-//             fontStyle: 'italic',
-//             border: '2px dotted #1a1a1a',
-//             lineHeight: '1.5',
-//           }}
-//         >
-//           {thought.thoughtText}
-//         </blockquote>
-//       </div>
+          <p className="text-xl font-medium mb-2">
+            Description: {listing.listingText}
+          </p>
+        </div>
+      </div>
 
-//       <div className="my-5">
-//         <CommentList comments={thought.comments} />
-//       </div>
-//       <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-//         <CommentForm thoughtId={thought._id} />
-//       </div>
-//     </div>
-//   );
-// };
+      <div className="mb-3 px-4">
+        <CommentList comments={listing.comments} />
+      </div>
+      <div className="mb-2 px-4">
+        <CommentForm listingId={listing._id} />
+      </div>
+    </body>
+  );
+};
 
-// export default SingleThought;
+export default SingleListing;

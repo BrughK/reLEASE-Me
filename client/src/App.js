@@ -1,7 +1,8 @@
 import Landing from "./components/Landing";
 import About from "./components/About";
-import Browse from "./components/Listings";
+import AllLists from "./pages/allListings";
 import ListingForm from "./components/createListing";
+import SingleListing from "./pages/oneListing";
 import Devs from "./components/Devs";
 
 import Footer from "./components/Footer";
@@ -76,11 +77,10 @@ export default function Example() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
-          <Route path="/listings" element={<Browse />} />
+          <Route path="/listings" element={<AllLists />} />
           <Route path="/post-listing" element={<ListingForm />} />
           <Route path="/developers-page" element={<Devs />} />
-          {/* Create a route to display a single thought's comments based on its `thoughtId` provided in the URL */}
-          {/* <Route path="/thoughts/:thoughtId" element={<SingleThought />} /> */}
+          <Route path="/listings/:listingId" element={<SingleListing />} />
         </Routes>
         <Footer />
       </Router>
