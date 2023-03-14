@@ -29,7 +29,7 @@ export default function Example() {
                   Get started
                 </a>
                 <a
-                  href="#"
+                  href="/about"
                   className="rounded-md bg-main-dark px-3.5 py-2.5 text-main-yellow font-semibold shadow-sm "
                 >
                   Learn more!
