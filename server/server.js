@@ -1,7 +1,6 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
-const { createProxyMiddleware } = require('http-proxy-middleware');
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 
@@ -12,7 +11,6 @@ const server = new ApolloServer({
   resolvers,
 });
 
-app.use('/api', createProxyMiddleware({target: 'http://localhost:3001', changeOrigin: true}))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
