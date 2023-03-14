@@ -1,7 +1,7 @@
 import Landing from "./components/Landing";
 import About from "./components/About";
 import Browse from "./components/Listings";
-import Listing from "./components/creatListing";
+import Listing from "./components/createListing";
 import Devs from "./components/Devs";
 
 import Footer from "./components/Footer";
