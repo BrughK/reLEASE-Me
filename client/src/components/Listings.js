@@ -1,93 +1,111 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-// const Browse = () => {
-//   return (
-//     <body className="bg-main-yellow full-class">
-//       <style type="text/css">{`.full-class{height: 911px;}`}</style>
-    
-//     </body>
-//   );
-// };
+const Browse = ({ listings, title }) => {
+  const [sortOrder, setSortOrder] = useState();
 
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
-const products = [
-  {
-    id: 1,
-    name: 'Earthen Bottle',
-    href: '#',
-    price: '$48',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-  },
-  {
-    id: 2,
-    name: 'Nomad Tumbler',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
-  },
-  {
-    id: 3,
-    name: 'Focus Paper Refill',
-    href: '#',
-    price: '$89',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
-  },
-  {
-    id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
-  },
-  // More products...
-]
+  const handleSortOrderChange = (event) => {
+    setSortOrder(event.target.value);
+  };
 
-const Browse = () => {
-  return (
-    <body className="bg-main-yellow full-class">
-    <style type="text/css">{`.full-class{height: 911px;}`}</style>
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="sr-only">Products</h2>
+  const sortedListings = () => {
+    if (sortOrder === "asc") {
+      return listings
+        .slice()
+        .sort((a, b) => a.listingAvgRent - b.listingAvgRent);
+    } else if (sortOrder === "desc") {
+      return listings
+        .slice()
+        .sort((a, b) => b.listingAvgRent - a.listingAvgRent);
+    } else {
+      return listings;
+    }
+  };
 
-        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {products.map((product) => (
-            <a key={product.id} href={product.href} className="group">
-              <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                <img
-                  src={product.imageSrc}
-                  alt={product.imageAlt}
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-            </a>
-          ))}
+  if (!listings.length) {
+    return (
+      <body className="bg-full-gif full-class">
+        <style type="text/css">{`.full-class{
+          background-position: center;
+          background-size: contain;
+          height: 911px;
+        }`}</style>
+        <div className="relative isolate px-6 pt-24 lg:px-8">
+          <div className="mx-auto max-w-2xl sm:py-48 lg:py-56">
+            <div className="text-center">
+              <h1 className="[text-shadow:_1px_2px_3px_rgb(0_0_0_/_60%)] text-4xl font-bold tracking-tight text-main-dark sm:text-4xl md:text-6xl">
+                No Listings Yet! <br /> Check back soon, or post your own now!
+              </h1>
+            </div>
+          </div>
         </div>
+      </body>
+    );
+  }
+
+  return (
+    <div className="mx-3">
+      <p className="[text-shadow:_1px_2px_3px_rgb(0_0_0_/_60%)] pb-4 text-5xl text-center font-bold tracking-tight text-main-dark sm:text-4xl md:text-5xl">
+        {title}
+      </p>
+      <div className="flex py-3 text-xl font-semibold rounded-md bg-main-dark justify-center text-main-yellow">
+        <label htmlFor="sortOrder" className="m-2">
+          Sort by price:
+        </label>
+        <select
+          id="sortOrder"
+          name="sortOrder"
+          value={sortOrder}
+          onChange={handleSortOrderChange}
+          className="text-main-yellow bg-main-dark text-center rounded"
+        >
+          <option value="none">No Sort</option>
+          <option value="asc">Lowest - Highest</option>
+          <option value="desc">Highest - Lowest</option>
+        </select>
       </div>
+      {sortedListings().map((listing) => (
+        <div
+          key={listing._id}
+          className="bg-main-dark rounded-lg text-main-yellow p-3 mt-3"
+        >
+          <p className="text-4xl text-center font-bold sm:truncate sm:tracking-tight">
+            {listing.listingAuthor} <br />
+            <span
+              className="text-main-dark italic"
+              style={{ fontSize: "1rem" }}
+            >
+              created this listing on {listing.createdAt}
+            </span>
+          </p>
+
+          <p className="text-2xl font-medium">
+            School: {listing.listingSchool}
+          </p>
+
+          <p className="text-xl font-medium">
+            Roommates: {listing.listingRoomies}
+          </p>
+
+          <p className="text-xl font-medium">
+            Average Rent: {listing.listingAvgRent}
+          </p>
+
+          <p className="text-xl font-medium mb-2">
+            Description: {listing.listingText}
+          </p>
+          <Link
+            className="bg-pale-dark hover:opacity-60 transition ease-in-out delay-60 font-bold py-2 rounded"
+            to={`/listings/${listing._id}`}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            Check out this listing!
+          </Link>
+        </div>
+      ))}
+      <p className="opacity-0">lolololo</p>
     </div>
-    </body>
-  )
-}
-
-
+  );
+};
 
 export default Browse;
