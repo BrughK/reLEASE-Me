@@ -3,6 +3,7 @@ import About from "./components/About";
 import Browse from "./components/Listings";
 import Listing from "./components/createListing";
 import Devs from "./components/Devs";
+import "./App.css";
 
 import Footer from "./components/Footer";
 // import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";

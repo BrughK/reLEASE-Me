@@ -11,7 +11,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         "doc-gif": "url('./assets/Untitled design.gif')",
-      },
+        "full-gif": "url('./assets/background.gif')",
+      }, 
     },
   },
   plugins: [
