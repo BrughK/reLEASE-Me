@@ -20,28 +20,24 @@ const Footer = () => {
             </svg>
             <span className="ml-3 text-xl">ReLEASE Me</span>
           </a>
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-gray-500">
             Connecting college students to the perfect sublease.
           </p>
         </div>
         <div className="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+            <h2 className="title-font font-medium  tracking-widest text-md mb-3">
               Find More:
             </h2>
             <nav className="list-none mb-10">
               <li>
-                <a className="text-gray-600 hover:text-gray-800">
-                  Privacy Policy
-                </a>
+                <a className="hover:opacity-60">Privacy Policy</a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800">
-                  Terms of Service
-                </a>
+                <a className="hover:opacity-60">Terms of Service</a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800">Copy Right</a>
+                <a className="hover:opacity-60">Copy Right</a>
               </li>
             </nav>
           </div>
@@ -49,7 +45,7 @@ const Footer = () => {
       </div>
       <div className="bg-gray-100">
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-gray-500 text-sm text-center sm:text-left">
+          <p className="italic text-sm text-center sm:text-left">
             © 2023 ReLEASE Me —
             <a
               href="https://github.com/BrughK/reLEASE-Me"
