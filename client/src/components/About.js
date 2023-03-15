@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 const links = [
   { name: "Home", href: "/" },
   { name: "Browse Listings", href: "/listings" },
@@ -53,9 +55,9 @@ const About = () => {
           <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
             <div className="grid text-2xl justify-center grid-cols-1 gap-y-6 gap-x-8 font-semibold leading-7 text-bright-yellow sm:grid-cols-2 md:flex lg:gap-x-10">
               {links.map((link) => (
-                <a key={link.name} href={link.href}>
+                <Link key={link.name} to={link.href}>
                   {link.name} <span aria-hidden="true">&rarr;</span>
-                </a>
+                </Link>
               ))}
             </div>
             <dl className="grid grid-cols-1 gap-8 sm:mt-8 sm:pb-4 sm:grid-cols-2 lg:grid-cols-4">
