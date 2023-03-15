@@ -56,6 +56,8 @@ const Devs = () => {
                       <a
                         href={dev.github}
                         className="text-gray-600 hover:text-gray-800 mx-3"
+                        target="_blank"
+                        rel="noreferrer noopener"
                       >
                         <button className="inline-flex justify-center rounded-full bg-main-dark py-2 px-3 text-lg font-semibold text-main-yellow shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                           GitHub
@@ -64,6 +66,8 @@ const Devs = () => {
                       <a
                         href={dev.linkedin}
                         className="text-gray-600 hover:text-gray-800 mx-3"
+                        target="_blank"
+                        rel="noreferrer noopener"
                       >
                         <button className="inline-flex justify-center rounded-full bg-main-dark py-2 px-3 text-lg font-semibold text-main-yellow shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                           LinkedIn
