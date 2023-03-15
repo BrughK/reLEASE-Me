@@ -7,7 +7,6 @@ import Devs from "./components/Devs";
 import "./App.css";
 import Soon from "./components/comingSoon";
 
-
 import Footer from "./components/Footer";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { Disclosure } from "@headlessui/react";
@@ -38,7 +37,7 @@ export default function Example() {
                     </Link>
                     <Link
                       className="text-main-yellow transition ease-in-out delay-60 hover:opacity-50 rounded-md px-3 py-2 text-lg font-medium"
-                      to="/about"
+                      to="/about-us"
                     >
                       About
                     </Link>
@@ -81,7 +80,7 @@ export default function Example() {
         {/* React Router Routes */}
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about-us" element={<About />} />
           <Route path="/listings" element={<AllLists />} />
           <Route path="/post-listing" element={<ListingForm />} />
           <Route path="/developers-page" element={<Devs />} />

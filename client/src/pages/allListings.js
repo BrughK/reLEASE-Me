@@ -13,6 +13,7 @@ const AllLists = () => {
       <style type="text/css">{`.full-class{
           background-position: center;
           background-size: contain;
+          min-height: 911px;
         }`}</style>
       <div className="">
         <div className="">
