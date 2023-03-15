@@ -4,7 +4,9 @@ import AllLists from "./pages/allListings";
 import ListingForm from "./components/createListing";
 import SingleListing from "./pages/oneListing";
 import Devs from "./components/Devs";
+import "./App.css";
 import Soon from "./components/comingSoon";
+
 
 import Footer from "./components/Footer";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
