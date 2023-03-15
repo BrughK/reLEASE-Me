@@ -1,5 +1,6 @@
 import Type from "./Type";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Example() {
   return (
@@ -22,18 +23,18 @@ export default function Example() {
                 Find or Lease your place today!
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
-                <a
-                  href="/post-listing"
+                <Link
+                  to="/post-listing"
                   className="rounded-md bg-main-dark px-8 py-3 text-main-yellow text-lg font-semibold shadow-sm "
                 >
                   Get started
-                </a>
-                <a
-                  href="/about-us"
+                </Link>
+                <Link
+                  to="/about-us"
                   className="rounded-md bg-main-dark px-8 py-3 text-main-yellow text-lg font-semibold shadow-sm "
                 >
                   Learn more!
-                </a>
+                </Link>
               </div>
             </div>
           </div>
