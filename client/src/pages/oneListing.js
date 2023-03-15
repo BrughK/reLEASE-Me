@@ -17,11 +17,12 @@ const SingleListing = () => {
     return <div>Loading...</div>;
   }
   return (
-    <body className="bg-main-yellow full-class">
+    <body className="bg-full-gif full-class">
+      <p className="opacity-0">lolololo</p>
       <style type="text/css">{`.full-class{
           background-position: center;
           background-size: contain;
-          
+          height: auto;
         }`}</style>
 
       <div className="my-3 mx-4 px-4 bg-main-dark rounded-md text-main-yellow p-4">
@@ -56,6 +57,7 @@ const SingleListing = () => {
       <div className="mb-2 px-4">
         <CommentForm listingId={listing._id} />
       </div>
+      <p className="opacity-0">lolololo</p>
     </body>
   );
 };

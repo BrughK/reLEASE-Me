@@ -63,26 +63,24 @@ const ListForm = () => {
   };
 
   return (
-    <body className="card bg-main-yellow full-class">
+    <body className="card bg-full-gif full-class">
       <style type="text/css">{`.full-class{
       height: 911px;
     }`}</style>
       <br></br>
       <Card
-        className="max-w-[60rem] rounded-lg ml-96 mt-10"
+        className="w-auto rounded-lg my-10  pt-4 pb-8"
         style={{
-          backgroundColor: "#333533",
           display: "flex",
           justifyContent: "center",
         }}
       >
         <Card.Body className="relative">
           <Card.Title
+            className="[text-shadow:_1px_3px_3px_rgb(0_0_0_/_80%)] text-main-dark text-6xl pb-4 font-semibold tracking-tight"
             style={{
-              color: "#FFD100",
               display: "flex",
               justifyContent: "center",
-              fontSize: "40px",
             }}
           >
             New Listing
@@ -90,11 +88,11 @@ const ListForm = () => {
           <div className="md:grid md:grid-cols-2 md:gap-3">
             <div className="mt-5 md:col-span-2 md:mt-0">
               <form onSubmit={handleFormSubmit}>
-                <div className="overflow-hidden shadow sm:rounded-md">
-                  <div className="bg-pale-dark px-4 py-5 sm:p-6">
+                <div className="overflow-hidden shadow rounded-md">
+                  <div className="bg-main-dark px-16 py-12 sm:px-12 sm:py-8">
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6 sm:col-span-3">
-                        <label className="block text-sm font-medium leading-6 text-main-yellow">
+                        <label className="text-md font-medium leading-6 text-main-yellow">
                           Author Name
                         </label>
                         <input
@@ -105,14 +103,14 @@ const ListForm = () => {
                           id="name"
                           placeholder="Full Name"
                           autoComplete="given-name"
-                          className="mt-2 block w-full rounded-md border-0 py-1.5 text-main-yellow shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-bright-yellow sm:text-sm sm:leading-6"
+                          className="my-2 px-5 block font-medium w-full rounded-md border-0 bg-white py-1.5 text-main-dark shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-bright-yellow sm:text-sm sm:leading-6"
                         />
                       </div>
 
                       <div className="col-span-6 sm:col-span-3">
                         <label
                           htmlFor="school"
-                          className="block text-sm font-medium leading-6 text-main-yellow"
+                          className="text-md font-medium leading-6 text-main-yellow"
                         >
                           School/University
                         </label>
@@ -123,14 +121,14 @@ const ListForm = () => {
                           placeholder="What school do you attend?"
                           name="listingSchool"
                           autoComplete="school-name"
-                          className="mt-2 block w-full rounded-md border-0 bg-white py-1.5 text-main-dark shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-bright-yellow sm:text-sm sm:leading-6"
+                          className="my-2 block font-medium w-full rounded-md border-0 bg-white py-1.5 text-main-dark shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-bright-yellow sm:text-sm sm:leading-6"
                         />
                       </div>
                       {/* Rent */}
                       <div className="col-span-6 sm:col-span-3">
                         <label
                           htmlFor="rent"
-                          className="block text-sm font-medium leading-6 text-main-yellow"
+                          className="text-md font-medium leading-6 text-main-yellow"
                         >
                           Rent
                         </label>
@@ -139,7 +137,7 @@ const ListForm = () => {
                           onChange={handleChange}
                           type="text"
                           name="listingAvgRent"
-                          className="mt-2 block w-full rounded-md border-0 py-1.5 text-main-yellow shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-bright-yellow sm:text-sm sm:leading-6"
+                          className="my-2 block w-full font-medium rounded-md border-0 bg-white py-1.5 text-main-dark shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-bright-yellow sm:text-sm sm:leading-6"
                           placeholder="Ex: $950-$1200"
                         />
                       </div>
@@ -147,7 +145,7 @@ const ListForm = () => {
                       <div className="col-span-6 sm:col-span-3">
                         <label
                           htmlFor="gender"
-                          className="block text-sm font-medium leading-6 text-main-yellow"
+                          className="text-md font-medium leading-6 text-main-yellow"
                         >
                           Roommate Gender
                         </label>
@@ -157,7 +155,7 @@ const ListForm = () => {
                           type="text"
                           placeholder="Who will I be living with?"
                           name="listingRoomies"
-                          className="mt-2 block w-full rounded-md border-0 bg-white py-1.5 text-main-dark shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-bright-yellow sm:text-sm sm:leading-6"
+                          className="my-2 block font-medium w-full rounded-md border-0 bg-white py-1.5 text-main-dark shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-bright-yellow sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
@@ -166,7 +164,7 @@ const ListForm = () => {
                     <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                       <label
                         htmlFor="description"
-                        className="block text-sm font-medium leading-6 text-main-yellow"
+                        className="text-md font-medium leading-6 text-main-yellow"
                       >
                         Listing Description
                       </label>
@@ -177,19 +175,19 @@ const ListForm = () => {
                         type="textarea"
                         name="listingText"
                         rows={4}
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-main-yellow shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-bright-yellow sm:text-sm sm:leading-6"
+                        className="my-2 font-medium block w-full rounded-md border-0 bg-white py-1.5 text-main-dark shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-bright-yellow sm:text-sm sm:leading-6"
                       />
                     </div>
                     <br></br>
-                  </div>
-
-                  <div className="bg-gray-50  py-3 text-center sm:px-6">
-                    <button
-                      type="submit"
-                      className="inline-flex justify-center rounded-full bg-main-dark py-3 px-8 text-lg font-semibold text-main-yellow shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                    >
-                      Save
-                    </button>
+                    <div className="text-center">
+                      <button
+                        type="submit"
+                        className="rounded-full
+                        p-3 transition ease-in-out delay-150 bg-main-yellow hover:-translate-y-1 hover:scale-110 hover:opacity-40 duration-30 py-3 px-8 text-lg font-bold delay-60 text-main-dark shadow-lg"
+                      >
+                        Save
+                      </button>
+                    </div>
                   </div>
                 </div>
               </form>

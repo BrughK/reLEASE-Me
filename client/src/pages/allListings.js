@@ -9,7 +9,11 @@ const AllLists = () => {
   const listings = data?.listings || [];
 
   return (
-    <body className="bg-main-yellow">
+    <body className="bg-full-gif full-class">
+      <style type="text/css">{`.full-class{
+          background-position: center;
+          background-size: contain;
+        }`}</style>
       <div className="">
         <div className="">
           {loading ? (

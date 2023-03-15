@@ -23,14 +23,14 @@ export default function Example() {
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a
-                  href="#"
-                  className="rounded-md bg-main-dark px-3.5 py-2.5 text-main-yellow font-semibold shadow-sm "
+                  href="/post-listing"
+                  className="rounded-md bg-main-dark px-8 py-3 text-main-yellow text-lg font-semibold shadow-sm "
                 >
                   Get started
                 </a>
                 <a
                   href="/about"
-                  className="rounded-md bg-main-dark px-3.5 py-2.5 text-main-yellow font-semibold shadow-sm "
+                  className="rounded-md bg-main-dark px-8 py-3 text-main-yellow text-lg font-semibold shadow-sm "
                 >
                   Learn more!
                 </a>

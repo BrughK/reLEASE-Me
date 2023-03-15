@@ -3,7 +3,12 @@ import React from "react";
 const CommentList = ({ comments = [] }) => {
   console.log(comments);
   if (!comments.length) {
-    return <h3>No Comments Yet</h3>;
+    return (
+      <h3 className="[text-shadow:_1px_2px_3px_rgb(0_0_0_/_60%)] text-3xl font-bold tracking-tight text-center text-main-dark sm:text-3xl md:text-4xl">
+        No Comments Yet <br />
+        Post one below!
+      </h3>
+    );
   }
 
   return (
@@ -25,9 +30,9 @@ const CommentList = ({ comments = [] }) => {
                   </h5>
                   <p className="break-all pr-2 italic">{comment.commentText}</p>
                 </div>
-                <p>
-                  -----------------------------------------------------------------------------------------------------------------------------------------------------
-                </p>
+                <div class="relative flex py-5 items-center">
+                  <div class="flex-grow border-t opacity-50"></div>
+                </div>
               </div>
             ))}
         </div>

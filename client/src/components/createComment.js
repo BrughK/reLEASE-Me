@@ -34,11 +34,11 @@ const CommentForm = ({ listingId }) => {
 
   return (
     <div className="bg-main-dark rounded-md text-main-yellow p-4">
-      <h4 className="font-medium">
+      <h4 className="font-medium text-center">
         Got any questions or interested in the place?
       </h4>
       <p
-        className={`m-0 text-sm italic ${
+        className={`m-0 text-sm italic text-right ${
           characterCount === 350 || error ? "text-danger" : ""
         }`}
       >
@@ -65,7 +65,8 @@ const CommentForm = ({ listingId }) => {
           style={{ display: "flex", justifyContent: "center" }}
         >
           <button
-            className="bg-pale-dark p-3 rounded-full font-medium"
+            className="rounded-full
+            p-3 transition ease-in-out delay-150 bg-main-yellow hover:-translate-y-1 hover:scale-110 hover:opacity-40 duration-30 py-3 px-8 text-lg font-bold delay-40 text-main-dark shadow-lg"
             type="submit"
           >
             Add Comment
